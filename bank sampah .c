@@ -22,7 +22,7 @@ Deskripsi	: Membuat menu transaksi
 
 Tanggal		: 12/12/2021
 Oleh		: Putu Agus Yoga Budhi Darma (2105551011)
-Revisi		: 01
+Revisi		: 04
 Deskripsi	: Membuat fungsi tentang
 *******************************************************************************************************************/
 
