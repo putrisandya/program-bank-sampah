@@ -133,6 +133,12 @@ int main () {
 			sleep(2);
 			system("cls");
 		}
+		else if(pilihan_menu==3){
+			tentang ();
+			konfirmasi ();
+			sleep(2);
+			system("cls");
+		}
 		else {
 			printf("Pilihan Tidak Tersedia!\n");
 			sleep(2);
