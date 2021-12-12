@@ -6,7 +6,7 @@ Revisi		: 0
 Deskripsi	: Membuat variabel, fungsi login_admin untuk aktivasi program dengan strcmp, dan fungsi utama
 
 Tanggal		: 06/12/2021
-Oleh		: Putu Agus Yoga Budhi Darma
+Oleh		: Putu Agus Yoga Budhi Darma (2105551011)
 Revisi		: 01
 Deskripsi	: Membuat fungsi welcome, login user, buat akun user dan menambahkan fungsi utama
 
@@ -19,6 +19,11 @@ Tanggal		: 12/12/2021
 Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 03
 Deskripsi	: Membuat menu transaksi
+
+Tanggal		: 12/12/2021
+Oleh		: Putu Agus Yoga Budhi Darma (2105551011)
+Revisi		: 01
+Deskripsi	: Membuat fungsi tentang
 *******************************************************************************************************************/
 
 #include <stdio.h>
@@ -36,6 +41,7 @@ void login_admin (char username [10], char password [10]);
 void welcome ();
 void login_user ();
 void buat_akun_user ();
+void tentang ();
 
 //deklarasi variabel global
 char username [10], password [10];
@@ -81,6 +87,15 @@ void buat_akun_user (){
 	printf("----------------------------------------------------------------------------------------------\n");
 }
 
+//fungsi tentang
+void tentang (){
+	printf("----------------------------------------------------------------------------------------------\n");
+	printf("\t\t\t\tPROGRAM INI DIBUAT OLEH : \n");
+	printf("\t\t\tNi Komang Putri Sandya 		(2105551006)\n");
+	printf("\t\t\tPutu Agus Yoga Budhi Darma 	(2105551011)");
+	printf("\n----------------------------------------------------------------------------------------------\n");
+}
+
 
 int main () {
 	int login=0, pilihan_transaksi, tabungan_awal, tabungan_akhir, tabungan_plastik, tabungan_kertas, tabungan_logam, 
@@ -95,7 +110,8 @@ int main () {
 	while(login==0){	
 		welcome ();	
 		printf("1. LOGIN USER\n");
-		printf("2. BUAT AKUN\n\n");
+		printf("2. BUAT AKUN\n");
+		printf("3. TENTANG\n\n"):
 		printf("Pilihan menu : ");
 		scanf("%d", &pilihan_menu);
 		system("cls");
