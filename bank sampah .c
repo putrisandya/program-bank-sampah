@@ -1,7 +1,7 @@
 /*******************************************************************************************************************
 							PROGRAM LAYANAN BANK SAMPAH JUMPAI ASRI LESTARI
 Tanggal		: 04/12/2021
-Oleh		: Ni Komang Putri Sandya
+Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 0
 Deskripsi	: Membuat variabel, fungsi login_admin untuk aktivasi program dengan strcmp, dan fungsi utama
 
@@ -11,9 +11,14 @@ Revisi		: 01
 Deskripsi	: Membuat fungsi welcome, login user, buat akun user dan menambahkan fungsi utama
 
 Tanggal		: 07/12/2021
-Oleh		: Ni Komang Putri Sandya
+Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 02
 Deskripsi	: Menambahkan fungsi utama
+
+Tanggal		: 12/12/2021
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 03
+Deskripsi	: Membuat menu transaksi
 *******************************************************************************************************************/
 
 #include <stdio.h>
@@ -118,7 +123,15 @@ int main () {
 			system("cls");
 		}
 	}
-	
+	while(menu==1){
+		system("cls");
+		welcome ();
+		printf("1. PENARIKAN \n");
+		printf("2. PENYETORAN\n");
+		printf("3. CEK SALDO\n");
+		printf("Pilihan Transaksi : ");
+		scanf("%d", &pilihan_transaksi);
+		system("cls");
 return (0);
 }
 
