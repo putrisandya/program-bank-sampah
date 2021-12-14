@@ -24,6 +24,11 @@ Tanggal		: 12/12/2021
 Oleh		: Putu Agus Yoga Budhi Darma (2105551011)
 Revisi		: 04
 Deskripsi	: Membuat fungsi tentang
+
+Tanggal		: 14/12/2021
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 05
+Deskripsi	: Mengubah struktur penulisan tipe data struct
 *******************************************************************************************************************/
 
 #include <stdio.h>
@@ -31,10 +36,10 @@ Deskripsi	: Membuat fungsi tentang
 #include <stdlib.h>
 
 //membuat tipe data abstrak (ADT) untuk menyimpan variabel username dan password dari pengguna
-typedef struct{ 
+struct pengguna{ 
 	char username[50];
 	char password[50];
-}pengguna;
+};
 
 //deklarasi prototype fungsi
 void login_admin (char username [10], char password [10]);
@@ -101,7 +106,7 @@ int main () {
 	int login=0, pilihan_transaksi, tabungan_awal, tabungan_akhir, tabungan_plastik, tabungan_kertas, tabungan_logam, 
 	tabungan_botol_kaca, berat, jumlah_penarikan, pilihan_sampah, menu=1;
 	
-	pengguna user; 
+	struct pengguna user; 
 	
 	login_admin (username, password);
 	sleep(2);
@@ -111,7 +116,7 @@ int main () {
 		welcome ();	
 		printf("1. LOGIN USER\n");
 		printf("2. BUAT AKUN\n");
-		printf("3. TENTANG\n\n"):
+		printf("3. TENTANG\n\n");
 		printf("Pilihan menu : ");
 		scanf("%d", &pilihan_menu);
 		system("cls");
@@ -154,6 +159,7 @@ int main () {
 		printf("Pilihan Transaksi : ");
 		scanf("%d", &pilihan_transaksi);
 		system("cls");
+	}
 return (0);
 }
 
