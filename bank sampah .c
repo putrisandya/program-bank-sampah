@@ -34,6 +34,11 @@ Tanggal		: 21/12/2021
 Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 06
 Deskripsi	: Mengubah variabel tabungan, membuat menu transaksi sampah plastik dan kertas
+
+Tanggal		: 21/12/2021
+Oleh		: Putu Agus Yoga Budhi Darma (2105551011)
+Revisi		: 07
+Deskripsi	: Membuat menu transaksi sampah logam dan botol kaca
 *******************************************************************************************************************/
 
 #include <stdio.h>
@@ -365,5 +370,124 @@ int main () {
 					konfirmasi ();
 				}
 			}
+			else if(pilihan_sampah==3){
+				system("cls");
+				printf("\t\t\t\tJENIS SAMPAH LOGAM : \n\n");
+				printf("\t\t\t1. Aluminium Tebal/Panci\n");
+				printf("\t\t\t2. Aluminium Tipis/Kaleng\n");
+				printf("\t\t\t3. Besi Tebal\n");
+				printf("\t\t\t4. Besi Tipis\n");
+				printf("\t\t\t5. Tembaga\n");
+				printf("\t\t\t6. Seng\n");
+				printf("\nPilihan Sampah Logam			: ");
+				scanf("%d", &pilihan);
+				if(pilihan==1){
+					printf("\nMasukkan berat sampah logam (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_logam = berat*9000;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_logam);
+					konfirmasi ();
+				}
+				else if(pilihan==2){
+					printf("\nMasukkan berat sampah logam (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_logam = berat*8000;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_logam);
+					konfirmasi ();
+				}
+				else if(pilihan==3){
+					printf("\nMasukkan berat sampah logam (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_logam = berat*1500;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_logam);
+					konfirmasi ();
+				}
+				else if(pilihan==4){
+					printf("\nMasukkan berat sampah logam (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_logam = berat*1000;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_logam);
+					konfirmasi ();
+				}
+				else if(pilihan==5){
+					printf("\nMasukkan berat sampah logam (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_logam = berat*45000;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_logam);
+					konfirmasi ();
+				}
+				else if(pilihan==6){
+					printf("\nMasukkan berat sampah logam (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_logam = berat*300;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_logam);
+					konfirmasi ();
+				}
+				else{
+					printf("\nPilihan Tidak Tersedia!\n");
+					konfirmasi ();
+				}
+			}
+			else if(pilihan_sampah==4){
+				system("cls");
+				printf("\t\t\t\tJENIS SAMPAH BOTOL KACA : \n\n");
+				printf("\t\t\t1. Botol Bir Bintang Besar\n");
+				printf("\t\t\t2. Botol Bir Bintang Kecil\n");
+				printf("\t\t\t3. Botol Kaca Bening\n");
+				printf("\t\t\t4. Botol Kaca Besar Berwarna\n");
+				printf("\t\t\t5. Botol Kaca Kecil Berwarna\n");
+				printf("\nPilihan Sampah Botol Kaca			: ");
+				scanf("%d", &pilihan);
+				if(pilihan==1){
+					printf("\nMasukkan banyak botol bir (biji) 	: ");
+					scanf("%d", &berat);
+					tabungan_botol_kaca = berat*600;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_botol_kaca);
+					konfirmasi ();
+				}
+				else if(pilihan==2){
+					printf("\nMasukkan banyak botol bir (biji) 	: ");
+					scanf("%d", &berat);
+					tabungan_botol_kaca = berat*200;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_botol_kaca);
+					konfirmasi ();
+				}
+				else if(pilihan==3){
+					printf("\nMasukkan berat sampah botol kaca (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_botol_kaca = berat*100;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_botol_kaca);
+					konfirmasi ();
+				}
+				else if(pilihan==4){
+					printf("\nMasukkan berat sampah botol kaca (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_botol_kaca = berat*50;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_botol_kaca);
+					konfirmasi ();
+				}
+				else if(pilihan==5){
+					printf("\nMasukkan berat sampah botol kaca (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_botol_kaca = berat*25;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_botol_kaca);
+					konfirmasi ();
+				}
+			}
+			else{
+				printf("Mohon Maaf Pilihan Tidak Tersedia!\n");
+				konfirmasi ();
+			}
+			tabungan = tabungan + tabungan_plastik + tabungan_kertas +  tabungan_logam + tabungan_botol_kaca;
+		}
+		else if(pilihan_transaksi==3){
+			printf("Jumlah Saldo Tabungan Anda adalah Rp %d", tabungan);
+			konfirmasi ();
+		}
+		else{
+			menu=2;
+			keluar ();
+		}
+	}
 	return (0);
 }
