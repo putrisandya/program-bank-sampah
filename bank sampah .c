@@ -29,6 +29,11 @@ Tanggal		: 14/12/2021
 Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 05
 Deskripsi	: Mengubah struktur penulisan tipe data struct
+
+Tanggal		: 21/12/2021
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 06
+Deskripsi	: Mengubah variabel tabungan, membuat menu transaksi sampah plastik dan kertas
 *******************************************************************************************************************/
 
 #include <stdio.h>
@@ -36,7 +41,7 @@ Deskripsi	: Mengubah struktur penulisan tipe data struct
 #include <stdlib.h>
 
 //membuat tipe data abstrak (ADT) untuk menyimpan variabel username dan password dari pengguna
-struct pengguna{ 
+struct pengguna{
 	char username[50];
 	char password[50];
 };
@@ -46,11 +51,17 @@ void login_admin (char username [10], char password [10]);
 void welcome ();
 void login_user ();
 void buat_akun_user ();
+void penyetoran ();
+void jenis_sampah ();
+void konfirmasi ();
+void penarikan ();
+void keluar ();
 void tentang ();
 
 //deklarasi variabel global
 char username [10], password [10];
 int pilihan_menu;
+int pilihan;
 
 //fungsi login admin 
 void login_admin (char username [10], char password [10]) {
@@ -71,6 +82,7 @@ void login_admin (char username [10], char password [10]) {
     	login_admin (username, password);
 	}
 }
+
 //fungsi welcome
 void welcome (){
 	printf("\n----------------------------------------------------------------------------------------------\n");
@@ -79,7 +91,8 @@ void welcome (){
 	printf("----------------------------------------------------------------------------------------------\n");
 	printf("				MENU LAYANAN : \n");
 }
-//fungsi login_user
+
+//fungsi login user
 void login_user (){
 	printf("----------------------------------------------------------------------------------------------\n");
 	printf("					MENU LOGIN USER\n");
@@ -92,6 +105,40 @@ void buat_akun_user (){
 	printf("----------------------------------------------------------------------------------------------\n");
 }
 
+void penyetoran (){
+	printf("----------------------------------------------------------------------------------------------\n");
+	printf("					MENU PENYETORAN\n");
+	printf("----------------------------------------------------------------------------------------------\n");
+}
+
+void jenis_sampah (){
+	printf("		Jenis Sampah \n");
+	printf("1. PLASTIK\n");
+	printf("2. KERTAS\n");
+	printf("3. LOGAM\n");
+	printf("4. BOTOL KACA\n");
+}
+
+void konfirmasi (){
+	printf("\n\nIngin melanjutkan transaksi lain ?\n");
+	printf("Tekan 1 untuk melanjutkan\n");
+	printf("Tekan 2 untuk keluar");
+	printf("\n\nPilihan Menu : ");
+	scanf("%d", &pilihan_menu);
+}
+
+void penarikan (){
+	printf("----------------------------------------------------------------------------------------------\n");
+	printf("					MENU PENARIKAN\n");
+	printf("----------------------------------------------------------------------------------------------\n");
+}
+
+void keluar (){
+	system("cls");
+	printf("		\n\nTerima kasih Telah Menggunakan Layanan Ini!\n");
+	printf("\n\nSelamat beraktivitas!\n");
+	
+}
 //fungsi tentang
 void tentang (){
 	printf("----------------------------------------------------------------------------------------------\n");
@@ -103,7 +150,7 @@ void tentang (){
 
 
 int main () {
-	int login=0, pilihan_transaksi, tabungan_awal, tabungan_akhir, tabungan_plastik, tabungan_kertas, tabungan_logam, 
+	int login=0, pilihan_transaksi, tabungan=0, tabungan_plastik, tabungan_kertas, tabungan_logam, 
 	tabungan_botol_kaca, berat, jumlah_penarikan, pilihan_sampah, menu=1;
 	
 	struct pengguna user; 
@@ -144,8 +191,8 @@ int main () {
 			sleep(2);
 			system("cls");
 		}
-		else {
-			printf("Pilihan Tidak Tersedia!\n");
+		else{
+			printf("\n\t\t\tPilihan Tidak Tersedia!\n");
 			sleep(2);
 			system("cls");
 		}
@@ -159,7 +206,164 @@ int main () {
 		printf("Pilihan Transaksi : ");
 		scanf("%d", &pilihan_transaksi);
 		system("cls");
-	}
-return (0);
+		if(pilihan_transaksi==1){
+			penarikan ();
+			printf("Masukkan jumlah penarikan : Rp  ");
+			scanf("%d", &jumlah_penarikan);
+			if(jumlah_penarikan > tabungan){
+				printf("\nMohon Maaf Saldo Anda Tidak Cukup!\n\n");
+				konfirmasi();
+			}
+			else{
+				tabungan = tabungan - jumlah_penarikan;
+				printf("\nAnda Telah Menarik Rp %d Sisa Saldo Anda Rp %d", jumlah_penarikan, tabungan);
+				konfirmasi();
+			}
+		}
+		else if(pilihan_transaksi==2){
+			penyetoran ();
+			jenis_sampah ();
+			printf("Pilihan Sampah 			: ");
+			scanf("%d", &pilihan_sampah);
+			if(pilihan_sampah==1){
+				system("cls");
+				printf("\t\t\t\tJENIS SAMPAH PLASTIK : \n\n");
+				printf("\t\t\t1. Botol Plastik Dengan Tutup dan Label \n");
+				printf("\t\t\t2. Botol Plastik Tanpa Tutup dan Label\n");
+				printf("\t\t\t3. Gelas Plastik Dengan Tutup dan Label\n");
+				printf("\t\t\t4. Gelas Plastik Tanpa Tutup dan Label\n");
+				printf("\t\t\t5. Gelas plastik Dengan Sablon\n");
+				printf("\t\t\t6. Jirigen Putih Tanpa Lubang\n");
+				printf("\t\t\t7. Tutup Botol Plastik\n");
+				printf("\t\t\t8. Kantong Plastik Segala Warna\n");
+				printf("\t\t\t9. Ember Plastik\n");
+				printf("\nPilihan Sampah Plastik			: ");
+				scanf("%d", &pilihan);
+				if(pilihan==1){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*1000;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}
+				else if(pilihan==2){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*1800;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}
+				else if(pilihan==3){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*1300;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}	
+				else if(pilihan==4){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*2300;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}
+				else if(pilihan==5){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*1000;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}		
+				else if(pilihan==6){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*1000;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}
+				else if(pilihan==7){	
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*1200;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}
+				else if(pilihan==8){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*200;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}
+				else if(pilihan==9){
+					printf("\nMasukkan berat sampah plastik (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_plastik = berat*800;
+					printf("\nTransaksi Berhasil.\n\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_plastik);
+					konfirmasi ();
+				}
+				else{
+					printf("\nPilihan Tidak Tersedia!\n");
+					konfirmasi ();							
+				}
+			}
+			else if(pilihan_sampah==2){
+				system("cls");
+				printf("\t\t\t\tJENIS SAMPAH KERTAS : \n\n");
+				printf("\t\t\t1. Kardus\n");
+				printf("\t\t\t2. HVS\n");
+				printf("\t\t\t3. Buku Tulis\n");
+				printf("\t\t\t4. Kertas Buram\n");
+				printf("\t\t\t5. Majalah\n");
+				printf("\t\t\t6. Koran\n");
+				printf("\nPilihan Sampah Kertas			: ");
+				scanf("%d", &pilihan);
+				if(pilihan==1){
+					printf("\nMasukkan berat sampah kertas (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_kertas = berat*1500;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_kertas);
+					konfirmasi ();
+				}
+				else if(pilihan==2){
+					printf("\nMasukkan berat sampah kertas (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_kertas = berat*1200;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_kertas);
+					konfirmasi ();
+				}
+				else if(pilihan==3){
+					printf("\nMasukkan berat sampah kertas (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_kertas = berat*700;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_kertas);
+					konfirmasi ();
+				}
+				else if(pilihan==4){
+					printf("\nMasukkan berat sampah kertas (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_kertas = berat*600;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_kertas);
+					konfirmasi ();
+				}
+				else if(pilihan==5){
+					printf("\nMasukkan berat sampah kertas (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_kertas = berat*500;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_kertas);
+					konfirmasi ();
+				}
+				else if(pilihan==6){
+					printf("\nMasukkan berat sampah kertas (kg) 	: ");
+					scanf("%d", &berat);
+					tabungan_kertas = berat*2000;
+					printf("\nTransaksi Berhasil.\nTotal rupiah yang diperoleh 		: Rp %d\n", tabungan_kertas);
+					konfirmasi ();
+				}
+				else{
+					printf("\nPilihan Tidak Tersedia!\n");
+					konfirmasi ();
+				}
+			}
+	return (0);
 }
-
