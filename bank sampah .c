@@ -45,6 +45,11 @@ Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 08
 Deskripsi	: Mengubah tampilan program, mengubah tipe variabel lokal, membuat menu konfirmasi1, 
 		  menambah menu transaksi keluar
+		  
+Tanggal		: 28/12/2021
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 09
+Deskripsi	: Menambah keterangan output pada menu login
 *******************************************************************************************************************/
 
 #include<stdio.h>
@@ -193,6 +198,8 @@ int main () {
 			scanf("%s", &user.username);
 			printf("\t\tMasukkan Password		: ");
 			scanf("%s", &user.password);
+			printf("\n\t\t\t\tLOGIN BERHASIL!\n");
+			sleep(2);
 			login=1;
 		}
 		else if(pilihan_menu==2){
@@ -201,7 +208,7 @@ int main () {
 			scanf("%s", &user.username);
 			printf("\t\tMasukkan Password		: ");
 			scanf("%s", &user.password);
-			printf("\n\t\t\tAkun berhasil dibuat!\n");
+			printf("\n\t\t\t\tBUAT AKUN BERHASIL!\n");
 			sleep(2);
 			system("cls");
 		}
