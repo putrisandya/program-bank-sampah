@@ -61,6 +61,11 @@ Tanggal		: 02/01/2022
 Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 11
 Deskripsi	: Membuat struk bukti transaksi
+
+Tanggal		: 02/01/2022
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 11
+Deskripsi	: Membuat struk bukti transaksi cek saldo
 *******************************************************************************************************************/
 
 #include<stdio.h>
@@ -881,6 +886,42 @@ int main () {
 			printf("\n\t\t--------------------------------------------------------\n");
 			printf("\t\t\tJumlah Saldo Tabungan Anda adalah Rp %2.f\n", tabungan);
 			printf("\t\t----------------------------------------------------------\n");
+			printf("\n\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
+			sleep(5);
+			system("cls");
+			FILE *saldo;
+			saldo = fopen("bukti transaksi.txt", "a");
+			system("cls");
+			printf("\n");
+			printf("\t\t--------------------------------------------------------\n");
+			printf("\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
+			printf("\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
+			printf("\t\t--------------------------------------------------------\n");
+			printf("\t\t--------------------------------------------------------\n");
+			printf("\t\t                    INFORMASI SALDO                     \n");
+			printf("\t\tUsername          : %s                                  \n", user.nama);
+			printf("\t\tNama              : %s                                  \n", user.nama);
+			printf("\t\tAlamat            : %s                                  \n", user.alamat);
+			printf("\t\tTelepon           : %s                                  \n", user.telepon);
+			printf("\t\t--------------------------------------------------------\n");
+			printf("\t\tTotal Saldo       : %2.f                                \n", tabungan);
+			printf("\t\t--------------------------------------------------------\n");
+				
+			//menuliskan data yang diinput user ke dalam file "bukti transaksi.txt"
+			fprintf(saldo,"\t\t--------------------------------------------------------\n");
+			fprintf(saldo,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
+			fprintf(saldo,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
+			fprintf(saldo,"\t\t--------------------------------------------------------\n");
+			fprintf(saldo,"\t\t--------------------------------------------------------\n");
+			fprintf(saldo,"\t\t                    INFORMASI SALDO                     \n");
+			fprintf(saldo,"\t\tUsername          : %s                                  \n", user.nama);
+			fprintf(saldo,"\t\tNama              : %s                                  \n", user.nama);
+			fprintf(saldo,"\t\tAlamat            : %s                                  \n", user.alamat);
+			fprintf(saldo,"\t\tTelepon           : %s                                  \n", user.telepon);
+			fprintf(saldo,"\t\t--------------------------------------------------------\n");
+			fprintf(saldo,"\t\tTotal Saldo       : %2.f                                \n", tabungan);
+			fprintf(saldo,"\t\t--------------------------------------------------------\n\n");
+			fclose(saldo);
 			konfirmasi ();
 		}
 		else if(pilihan_transaksi==4){
