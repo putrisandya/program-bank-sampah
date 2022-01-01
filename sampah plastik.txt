@@ -1,0 +1,14 @@
+
+		--------------------------------------------------------
+                | NO |       JENIS SAMPAH PLASTIK :        | HARGA(KG) |
+                --------------------------------------------------------
+                | 1. |Botol Plastik Dengan Tutup dan Label | Rp 1000   |
+                | 2. |Botol Plastik Tanpa Tutup dan Label  | Rp 1800   |
+                | 3. |Gelas Plastik Dengan Tutup dan Label | Rp 1300   |
+                | 4. |Gelas Plastik Tanpa Tutup dan Label  | Rp 2300   |
+                | 5. |Gelas plastik Dengan Sablon          | Rp 1000   |
+                | 6. |Jirigen Putih Tanpa Lubang           | Rp 1000   |
+                | 7. |Tutup Botol Plastik                  | Rp 1200   |
+                | 8. |Kantong Plastik Segala Warna         | Rp  200   |
+                | 9. |Ember Plastik                        | Rp  800   |
+                --------------------------------------------------------

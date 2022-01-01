@@ -1,0 +1,10 @@
+
+                --------------------------------------------------------
+                | NO |       JENIS SAMPAH BOTOL KACA :     | HARGA(KG) |
+                --------------------------------------------------------
+                | 1. |Botol Bir Bintang Besar (biji)       | Rp  600   |
+                | 2. |Botol Bir Bintang Kecil (biji)       | Rp  200   |
+                | 3. |Botol Kaca Bening                    | Rp  100   |
+                | 4. |Botol Kaca Besar Berwarna            | Rp   50   |
+                | 5. |Botol Kaca Kecil Berwarna            | Rp   25   |
+                --------------------------------------------------------
