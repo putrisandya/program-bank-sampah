@@ -50,6 +50,12 @@ Tanggal		: 28/12/2021
 Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 09
 Deskripsi	: Menambah keterangan output pada menu login
+
+Tanggal		: 01/01/2022
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 10
+Deskripsi	: Memperbaiki tampilan program, menambah variabel temp, menambah variabel lain dalam struct pengguna,
+		  membuat fungsi sampah plastik, sampah kertas, sampah logam, dan sampah botol kaca
 *******************************************************************************************************************/
 
 #include<stdio.h>
@@ -60,7 +66,10 @@ Deskripsi	: Menambah keterangan output pada menu login
 struct pengguna{
 	char username[10];
 	char password[10];
-};
+	char nama[20];
+	char alamat[20];
+	char telepon[13];
+}user;
 
 //deklarasi prototype fungsi
 void login_admin(char username [10], char password [10]);
@@ -73,24 +82,30 @@ void jenis_sampah ();
 void konfirmasi ();
 void penarikan ();
 void keluar ();
+void sampah_plastik();
+void sampah_kertas();
+void sampah_logam();
+void sampah_botol_kaca();
 
 
 //deklarasi variabel global
 char username [10], password [10];
 int pilihan_menu;
 int pilihan;
+char temp[255];
 
 //fungsi login admin
 void login_admin (char username [10], char password [10]){
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("				MENU AKTIVASI PROGRAM");
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("\n\t\tMasukkan Username 	: ");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|                MENU AKTIVASI PROGRAM                 |\n");
+	printf("\t\t--------------------------------------------------------\n\n");
+	printf("\t\tMasukkan Username 	: ");
 	scanf("%s",username);
 	printf("\t\tMasukkan Password 	: ");
 	scanf("%s",password);
+	printf("\n\t\t--------------------------------------------------------\n");
 	
-	printf("\t\t---------------------------------------------------\n");
 	if (strcmp(username, "admin1")==0 && strcmp(password, "0101")==0) {
 		printf("\n\t\t    Akses diterima. Program siap dijalankan!");
 	}
@@ -105,70 +120,127 @@ void login_admin (char username [10], char password [10]){
 
 //fungsi welcome
 void welcome (){
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("		  PROGRAM LAYANAN BANK SAMPAH JUMPAI ASRI LESTARI\n");
-	printf("\t\t---------------------------------------------------\n");
-	printf("				MENU LAYANAN : \n\n");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|    PROGRAM LAYANAN BANK SAMPAH JUMPAI ASRI LESTARI   |\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|                 MENU LAYANAN :                       |\n");				MENU LAYANAN : \n\n");
 }
 
 //fungsi login user
 void login_user (){
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("				MENU LOGIN USER\n");
-	printf("\t\t---------------------------------------------------\n");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|                  MENU LOGIN USER                     |\n");
+	printf("\t\t--------------------------------------------------------\n");
 }
 //fungsi buat_akun_user
 void buat_akun_user (){
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("				MENU BUAT AKUN USER\n");
-	printf("\t\t---------------------------------------------------\n");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|               MENU BUAT AKUN USER                    |\n");
+	printf("\t\t--------------------------------------------------------\n");
 }
 //fungsi tentang
 void tentang (){
-	printf("\n\t\t----------------------------------------------------\n");
-	printf("				PROGRAM INI DIBUAT OLEH :\n");
-	printf("\t\t---------------------------------------------------\n");
-	printf("		    	Ni Komang Putri Sandya 	   (2105551006)\n");
-	printf("		    	Putu Agus Yoga Budhi Darma (2105551011)\n");
-	printf("\n\t\t----------------------------------------------------\n");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|                  PROGRAM INI DIBUAT OLEH :           |\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|	    	Ni Komang Putri Sandya 	   (2105551006)    |\n");
+	printf("\t\t|	    	Putu Agus Yoga Budhi Darma (2105551011)    |\n\n");
+	printf("\t\t--------------------------------------------------------\n");
 }
 //fungsi penyetoran
 void penyetoran (){
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("				MENU PENYETORAN\n");
-	printf("\t\t---------------------------------------------------\n");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|                   MENU PENYETORAN                    |\n");
+	printf("\t\t--------------------------------------------------------\n");
 }
 //fungsi jenis sampah
 void jenis_sampah (){
-	printf("				Jenis Sampah \n");
-	printf("\t\t\t\t1. PLASTIK\n");
-	printf("\t\t\t\t2. KERTAS\n");
-	printf("\t\t\t\t3. LOGAM\n");
-	printf("\t\t\t\t4. BOTOL KACA\n");
-	printf("\t\t---------------------------------------------------\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|                  Jenis Sampah :                      |\n");
+	printf("\t\t|                  1. PLASTIK                          |\n");
+	printf("\t\t|                  2. KERTAS                           |\n");
+	printf("\t\t|                  3. LOGAM                            |\n");
+	printf("\t\t|                  4. BOTOL KACA                       |\n");
+	printf("\t\t--------------------------------------------------------\n");
 }
 //fungsi konfirmasi
 void konfirmasi (){
-	printf("\n\n\t\t---------------------------------------------------\n");
-	printf("\t\t\tIngin melanjutkan transaksi lain ?\n");
-	printf("\t\t\tTekan 1 untuk kembali ke menu \n");
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("\t\t\tPilihan Menu : ");
+	printf("\n\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|          Ingin melanjutkan transaksi lain ?          |\n");
+	printf("\t\t|            Tekan 1 untuk kembali ke menu             |\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t                   Pilihan Menu : ");
 	scanf("%d", &pilihan_menu);
 }
 //fungsi penarikan
 void penarikan (){
-	printf("\t\t----------------------------------------------------\n");
-	printf("				MENU PENARIKAN\n");
-	printf("\t\t----------------------------------------------------\n");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|                   MENU PENARIKAN                     |\n");
+	printf("\t\t--------------------------------------------------------\n");
 }
 //fungsi keluar
 void keluar (){
-	printf("\n\t\t---------------------------------------------------\n");
-	printf("		    Terima kasih Telah Menggunakan Layanan Ini!\n");
-	printf("			     Selamat beraktivitas!\n");
-	printf("\t\t---------------------------------------------------\n");
+	printf("\n");
+	printf("\t\t--------------------------------------------------------\n");
+	printf("\t\t|      Terima kasih Telah Menggunakan Layanan Ini!     |\n");
+	printf("\t\t|                Selamat beraktivitas!                 |\n");
+	printf("\t\t--------------------------------------------------------\n");
 	
+}
+//fungsi menampilkan jenis-jenis sampah plastik
+void sampah_plastik(){
+	FILE *plastik;
+	plastik = fopen("sampah plastik.txt", "r");
+	if (plastik == NULL){
+		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
+	}
+	while (fgets(temp, sizeof(temp), plastik)){
+		printf("%s", temp);
+	}
+	fclose(plastik);
+}
+//fungsi menampilkan jenis-jenis sampah kertas
+void sampah_kertas(){
+	FILE *kertas;
+	kertas = fopen("sampah kertas.txt", "r");
+	if (kertas == NULL){
+		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
+	}
+	while (fgets(temp, sizeof(temp), kertas)){
+		printf("%s", temp);
+	}
+	fclose(kertas);
+}
+//fungsi menampilkan jenis-jenis sampah logam
+void sampah_logam(){
+	FILE *logam;
+	logam = fopen("sampah logam.txt", "r");
+	if (logam == NULL){
+		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
+	}
+	while (fgets(temp, sizeof(temp), logam)){
+		printf("%s", temp);
+	}
+	fclose(logam);
+}
+//fungsi menampilkan jenis-jenis sampah botol kaca
+void sampah_botol_kaca(){
+	FILE *botol;
+	botol = fopen("sampah botol.txt", "r");
+	if (botol == NULL){
+		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
+	}
+	while (fgets(temp, sizeof(temp), botol)){
+		printf("%s", temp);
+	}
+	fclose(botol);
 }
 //fungsi utama
 int main () {
@@ -181,16 +253,16 @@ int main () {
 	login_admin (username, password);
 	sleep(2);
 	system("cls");
-	login:
 	while(login==0){	
-		welcome ();	
-		printf("\t\t\t\t1. LOGIN USER\n");
-		printf("\t\t\t\t2. BUAT AKUN\n");
-		printf("\t\t\t\t3. TENTANG\n\n");
-		printf("\t\t---------------------------------------------------\n");
+		login:	
+		welcome ();
+		printf("\t\t|                 1. LOGIN USER                        |\n");
+		printf("\t\t|                 2. BUAT AKUN                         |\n");
+		printf("\t\t|                 3. TENTANG                           |\n");
+		printf("\t\t--------------------------------------------------------\n");
 		printf("\t\t\t\tPilihan menu : ");
 		scanf("%d", &pilihan_menu);
-		printf("\t\t---------------------------------------------------\n");
+		printf("\t\t--------------------------------------------------------\n");
 		system("cls");
 		if(pilihan_menu==1){
 			login_user ();
@@ -219,10 +291,10 @@ int main () {
 			system("cls");
 		}
 		else{
-			printf("\n\t\t---------------------------------------------------\n");
-			printf("\t\t\t\tPilihan Tidak Tersedia!\n");
-			printf("\t\t\t     Mohon Inputkan Dengan Benar!\n");
-			printf("\t\t---------------------------------------------------\n");
+			printf("\t\t--------------------------------------------------------\n");
+			printf("\t\t|              Pilihan Tidak Tersedia!                 |\n");
+			printf("\t\t|            Mohon Inputkan Dengan Benar!              |\n");
+			printf("\t\t--------------------------------------------------------\n");
 			sleep(5);
 			system("cls");
 		}
@@ -231,23 +303,23 @@ int main () {
 	while(menu==1){
 		system("cls");
 		welcome ();
-		printf("\t\t\t\t1. PENARIKAN \n");
-		printf("\t\t\t\t2. PENYETORAN\n");
-		printf("\t\t\t\t3. CEK SALDO\n");
-		printf("\t\t\t\t4. KELUAR\n");
-		printf("\t\t---------------------------------------------------\n");
+		printf("\t\t|                  1. PENARIKAN                        |\n");
+		printf("\t\t|                  2. PENYETORAN                       |\n");
+		printf("\t\t|                  3. CEK SALDO                        |\n");
+		printf("\t\t|                  4. KELUAR                           |\n");
+		printf("\t\t--------------------------------------------------------\n");
 		printf("\t\t\t\tPilihan Transaksi : ");
 		scanf("%d", &pilihan_transaksi);
 		system("cls");
 		if(pilihan_transaksi==1){
 			penarikan ();
-			printf("\t\tSaldo Tabungan Saat ini		: Rp %2.f\n", tabungan);
+			printf("\t\tSaldo Tabungan Saat ini	: Rp %2.f\n", tabungan);
 			printf("\t\tMasukkan jumlah penarikan	: Rp ");
 			scanf("%f", &jumlah_penarikan);
 			if(jumlah_penarikan>tabungan){
-				printf("\n\t\t---------------------------------------------------\n");
-				printf("\n\t\t\tMohon Maaf Saldo Anda Tidak Cukup!\n\n");
-				printf("\t\t---------------------------------------------------\n");
+				printf("\t\t--------------------------------------------------------\n\t");
+				printf("\t\t|       Mohon Maaf Saldo Anda Tidak Cukup!             |\n\n");
+				printf("\t\t--------------------------------------------------------\n");
 				konfirmasi ();
 			}
 			else{
@@ -264,408 +336,370 @@ int main () {
 			scanf("%d", &pilihan_sampah);
 			if(pilihan_sampah==1){
 				system("cls");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t\tJENIS SAMPAH PLASTIK : 	\n");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t1. Botol Plastik Dengan Tutup dan Label\n");
-				printf("\t\t\t2. Botol Plastik Tanpa Tutup dan Label\n");
-				printf("\t\t\t3. Gelas Plastik Dengan Tutup dan Label\n");
-				printf("\t\t\t4. Gelas Plastik Tanpa Tutup dan Label\n");
-				printf("\t\t\t5. Gelas plastik Dengan Sablon\n");
-				printf("\t\t\t6. Jirigen Putih Tanpa Lubang\n");
-				printf("\t\t\t7. Tutup Botol Plastik\n");
-				printf("\t\t\t8. Kantong Plastik Segala Warna\n");
-				printf("\t\t\t9. Ember Plastik\n");
-				printf("\t\t---------------------------------------------------\n");
+				sampah_plastik();
 				printf("\t\tPilihan Sampah Plastik 			: ");
 				scanf("%d", &pilihan);
 				if(pilihan==1){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*1000;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==2){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*1800;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==3){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*1300;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}	
 				else if(pilihan==4){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*2300;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==5){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*1000;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}		
 				else if(pilihan==6){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*1000;
-					printf("\t\t---------------------------------------------------\n");
-					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
+					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==7){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*1200;
-					printf("\t\t---------------------------------------------------\n");
-					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
+					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==8){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*200;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==9){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah plastik (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_plastik = berat*800;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_plastik);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else{
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\tPilihan Tidak Tersedia!\n");
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();						
 				}
 			}
 			else if(pilihan_sampah==2){
 				system("cls");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t\tJENIS SAMPAH KERTAS : \n\n");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t\t1. Kardus\n");
-				printf("\t\t\t\t2. HVS\n");
-				printf("\t\t\t\t3. Buku Tulis\n");
-				printf("\t\t\t\t4. Kertas Buram\n");
-				printf("\t\t\t\t5. Majalah\n");
-				printf("\t\t\t\t6. Koran\n");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\tPilihan Sampah Kertas			: ");
+				sampah_kertas();
+				printf("\n\t\tPilihan Sampah Kertas			: ");
 				scanf("%d", &pilihan);
 				if(pilihan==1){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah kertas (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_kertas = berat*1500;
-					printf("\t\t---------------------------------------------------\n");
-					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
+					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_kertas);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==2){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah kertas (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_kertas = berat*1200;
-					printf("\t\t---------------------------------------------------\n");
-					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
+					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_kertas);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==3){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah kertas (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_kertas = berat*700;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_kertas);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==4){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah kertas (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_kertas = berat*600;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_kertas);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==5){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah kertas (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_kertas = berat*500;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_kertas);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==6){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah kertas (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_kertas = berat*2000;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_kertas);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else{
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\tPilihan Tidak Tersedia!\n");
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();	
 				}
 			}
 			else if(pilihan_sampah==3){
 				system("cls");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t\tJENIS SAMPAH LOGAM : \n\n");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t1. Aluminium Tebal/Panci\n");
-				printf("\t\t\t2. Aluminium Tipis/Kaleng\n");
-				printf("\t\t\t3. Besi Tebal\n");
-				printf("\t\t\t4. Besi Tipis\n");
-				printf("\t\t\t5. Tembaga\n");
-				printf("\t\t\t6. Seng\n");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\tPilihan Sampah Logam			: ");
+				sampah_logam();
+				printf("\n\t\tPilihan Sampah Logam			: ");
 				scanf("%d", &pilihan);
 				if(pilihan==1){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah logam (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_logam = berat*9000;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_logam);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==2){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah logam (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_logam = berat*8000;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_logam);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==3){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah logam (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_logam = berat*1500;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_logam);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==4){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah logam (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_logam = berat*1000;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_logam);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==5){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah logam (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_logam = berat*45000;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_logam);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==6){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah logam (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_logam = berat*300;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_logam);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else{
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\tPilihan Tidak Tersedia!\n");
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 			}
 			else if(pilihan_sampah==4){
 				system("cls");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t\tJENIS SAMPAH BOTOL KACA : \n");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\t\t1. Botol Bir Bintang Besar\n");
-				printf("\t\t\t2. Botol Bir Bintang Kecil\n");
-				printf("\t\t\t3. Botol Kaca Bening\n");
-				printf("\t\t\t4. Botol Kaca Besar Berwarna\n");
-				printf("\t\t\t5. Botol Kaca Kecil Berwarna\n");
-				printf("\t\t---------------------------------------------------\n");
-				printf("\t\tPilihan Sampah Botol Kaca		: ");
+				sampah_botol_kaca();
+				printf("\n\t\tPilihan Sampah Botol Kaca		: ");
 				scanf("%d", &pilihan);
 				if(pilihan==1){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan banyak botol bir (biji) 	: ");
 					scanf("%f", &berat);
 					tabungan_botol_kaca = berat*600;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_botol_kaca);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==2){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan banyak botol bir (biji) 	: ");
 					scanf("%f", &berat);
 					tabungan_botol_kaca = berat*200;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_botol_kaca);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==3){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah botol kaca (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_botol_kaca = berat*100;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_botol_kaca);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==4){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah botol kaca (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_botol_kaca = berat*50;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_botol_kaca);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 				else if(pilihan==5){
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\t\tMasukkan berat sampah botol kaca (kg) 	: ");
 					scanf("%f", &berat);
 					tabungan_botol_kaca = berat*25;
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					printf("\n\t\t\t\tTRANSAKSI BERHASIL!\n");
-					printf("\n\t\t---------------------------------------------------\n");
+					printf("\n\t\t--------------------------------------------------------\n");
 					printf("\t\tTotal rupiah yang diperoleh 		: Rp %2.f\n", tabungan_botol_kaca);
-					printf("\t\t---------------------------------------------------\n");
+					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
 			}
 			else{
-				printf("\t\t---------------------------------------------------\n");
-				printf("\n\t\tPilihan Tidak Tersedia!\n");
-				printf("\t\t---------------------------------------------------\n");
+				printf("\t\t--------------------------------------------------------\n");
+				printf("\n\t\t\tPilihan Tidak Tersedia!\n");
+				printf("\t\t--------------------------------------------------------\n");
 				konfirmasi ();
 			} 
 			tabungan = tabungan + tabungan_plastik + tabungan_kertas + tabungan_logam + tabungan_botol_kaca;
 		}
 		else if(pilihan_transaksi==3){
-			printf("\n\t\t---------------------------------------------------\n");
+			printf("\n\t\t--------------------------------------------------------\n");
 			printf("\t\t\tJumlah Saldo Tabungan Anda adalah Rp %2.f\n", tabungan);
-			printf("\t\t---------------------------------------------------\n");
+			printf("\t\t----------------------------------------------------------\n");
 			konfirmasi ();
 		}
 		else if(pilihan_transaksi==4){
@@ -673,19 +707,20 @@ int main () {
 		}
 		else{
 			menu=2;
-			printf("\n\t\t---------------------------------------------------\n");
+			printf("\n\t\t--------------------------------------------------------\n");
 			printf("\t\t\t\tPilihan Tidak Tersedia!\n");
-			printf("\t\t---------------------------------------------------\n");
+			printf("\t\t---------------------------------------------------------\n");
 			goto keluar;
 		}
 	}
 	
 	konfirmasi1 :
-		printf("\n\n\t\t---------------------------------------------------\n");
-		printf("\t\t\tIngin melanjutkan transaksi lain ?\n");
-		printf("\t\t\tTekan 1 untuk melanjutkan\n");
-		printf("\t\t\tTekan 2 untuk keluar");
-		printf("\n\t\t---------------------------------------------------\n");
+		printf("\n\n");
+		printf("\t\t--------------------------------------------------------\n");
+		printf("\t\t|           Ingin melanjutkan transaksi lain ?         |\n");
+		printf("\t\t|              Tekan 1 untuk melanjutkan               |\n");
+		printf("\t\t|              Tekan 2 untuk keluar                    |\n");
+		printf("\t\t--------------------------------------------------------\n");
 		printf("\t\t\tPilihan  : ");
 		scanf("%d", &pilihan);
 		system("cls"); 
