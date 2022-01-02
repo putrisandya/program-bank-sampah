@@ -1,0 +1,252 @@
+	
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : Maharani                                  
+		Nama              : Maharani                                  
+		Alamat            : Jumpai kangin                                  
+		Telepon           : 082147264255                                  
+		--------------------------------------------------------
+		Jenis Sampah      : Plastik                             
+		Berat Sampah      : 2                                
+		Jumlah Penyetoran : 4600                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : Maharani                                  
+		Nama              : Maharani                                  
+		Alamat            : Jumpai kangin                                  
+		Telepon           : 082147264255                                  
+		--------------------------------------------------------
+		Jenis Sampah      : Logam                               
+		Berat Sampah      : 3                                
+		Jumlah Penyetoran : 20000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : Maharani                                  
+		Nama              : Maharani                                  
+		Alamat            : Jumpai kangin                                  
+		Telepon           : 082147264255                                  
+		--------------------------------------------------------
+		Jenis Sampah      : Botol Kaca                          
+		Berat Sampah      : 10                                
+		Jumlah Penyetoran : 6000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : Maharani                                  
+		Nama              : Maharani                                  
+		Alamat            : Jumpai kangin                                  
+		Telepon           : 082147264255                                  
+		--------------------------------------------------------
+		Jumlah Penarikan  : 20000                                
+		Saldo Saat Ini    : 10600                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                    INFORMASI SALDO                     
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Total Saldo       :  0                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Jenis Sampah      : Logam                               
+		Berat Sampah      : 4                                
+		Jumlah Penyetoran : 36000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Jumlah Penarikan  :  0                                
+		Saldo Saat Ini    :  0                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                    INFORMASI SALDO                     
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Total Saldo       :  0                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Jenis Sampah      : Plastik                             
+		Berat Sampah      : 100                                
+		Jumlah Penyetoran : 100000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Jumlah Penarikan  : 19000                                
+		Saldo Saat Ini    : 17000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                    INFORMASI SALDO                     
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Total Saldo       : 17000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : marisa                                  
+		Nama              : marisa                                  
+		Alamat            : jumpai kangin                                  
+		Telepon           : 087865645657                                  
+		--------------------------------------------------------
+		Jumlah Penarikan  : 12000                                
+		Saldo Saat Ini    : 5000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		Waktu             : Sun Jan 02 10:11:46 2022
+                                  
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : putri sandya                                  
+		Nama              : putri sandya                                  
+		Alamat            : jumpai kawan                                  
+		Telepon           : 081999765432                                  
+		--------------------------------------------------------
+		Jenis Sampah      : Plastik                             
+		Berat Sampah      : 2                                
+		Jumlah Penyetoran : 3600                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		Waktu             : Sun Jan 02 10:11:46 2022
+                                  
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : putri sandya                                  
+		Nama              : putri sandya                                  
+		Alamat            : jumpai kawan                                  
+		Telepon           : 081999765432                                  
+		--------------------------------------------------------
+		Jenis Sampah      : Logam                               
+		Berat Sampah      : 3                                
+		Jumlah Penyetoran : 24000                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		Waktu             : Sun Jan 02 10:11:46 2022
+                                  
+		--------------------------------------------------------
+		                BUKTI PENYETORAN SAMPAH                 
+		Username          : putri sandya                                  
+		Nama              : putri sandya                                  
+		Alamat            : jumpai kawan                                  
+		Telepon           : 081999765432                                  
+		--------------------------------------------------------
+		Jumlah Penarikan  : 3000                                
+		Saldo Saat Ini    : 600                                
+		--------------------------------------------------------
+
+		--------------------------------------------------------
+		|           BANK SAMPAH JUMPAI ASRI LESTARI            |
+		|            Desa Jumpai, Klungkung, Bali              |
+		--------------------------------------------------------
+		Waktu             : Sun Jan 02 10:11:46 2022
+                                  
+		--------------------------------------------------------
+		                    INFORMASI SALDO                     
+		Username          : putri sandya                                  
+		Nama              : putri sandya                                  
+		Alamat            : jumpai kawan                                  
+		Telepon           : 081999765432                                  
+		--------------------------------------------------------
+		Total Saldo       : 600                                
+		--------------------------------------------------------
+
