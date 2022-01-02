@@ -71,6 +71,11 @@ Tanggal		: 02/02/2022
 Oleh		: Putu Agus Yoga Budhi Darma (2105551011)
 Revisi		: 13
 Deskripsi	: Menambahkan waktu, memperbaiki menu login user, dan menambahkan tanggal pada bukti transaksi
+
+Tanggal		: 02/01/2022
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 14
+Deskripsi	: Memperbaiki tampilan program
 *******************************************************************************************************************/
 
 #include<stdio.h>
@@ -153,7 +158,7 @@ void login_user (){
 void buat_akun_user (){
 	printf("\n");
 	printf("\t\t--------------------------------------------------------\n");
-	printf("\t\t|               MENU BUAT AKUN USER                    |\n");
+	printf("\t\t|                  MENU BUAT AKUN USER                  |\n");
 	printf("\t\t--------------------------------------------------------\n");
 }
 //fungsi tentang
@@ -270,8 +275,6 @@ int main () {
 	time ( &rawtime );
 	timeinfo = localtime ( &rawtime );
 	
-	struct pengguna user; 
-	
 	login_admin (username, password);
 	sleep(2);
 	system("cls");
@@ -302,15 +305,16 @@ int main () {
 			scanf("%s", &user.password);
 			while (!feof(record)){
 				if(strcmp(username, user.username)==0 && strcmp(password, user.password)==0){
-					printf("\n\t\t\t\tLOGIN BERHASIL!\n");
+					printf("\n\t\t--------------------------------------------------------\n");
+					printf("\n\t\t                 LOGIN BERHASIL!                        \n");
 					sleep(2);
 					login=1;
 					goto transaksi;
 				}
 				else{
-					printf("\t\t--------------------------------------------------------\n");
-					printf("\n\t\t\t\t  Login Gagal!");
-					printf("\n\t\t\tUsername dan Password tidak tersedia.\n");
+					pprintf("\t\t--------------------------------------------------------\n\n");
+					printf("\t\t                    LOGIN GAGAL!                          \n");
+					printf("\t\t       Username dan Password tidak tersedia.              \n");
 					sleep(3);
 					system("cls");
 					goto login;
@@ -325,7 +329,7 @@ int main () {
 			regis = fopen("user.txt", "a");
 			
 			buat_akun_user ();
-			printf("\t\t\tSILAKAN MELAKUKAN REGISTRASI AKUN!\n\n");
+			printf("\t\t\t\tSILAKAN MELAKUKAN REGISTRASI AKUN!\n\n");
 			getchar();
 			printf("\t\tNama			: ");
 			gets(user.nama);
@@ -443,7 +447,6 @@ int main () {
 			}
 		}
 		else if(pilihan_transaksi==2){
-			tabungan = tabungan + tabungan_plastik + tabungan_kertas + tabungan_logam + tabungan_botol_kaca;
 			penyetoran ();
 			jenis_sampah ();
 			printf("\t\t\tPilihan Sampah 	: ");
@@ -562,8 +565,8 @@ int main () {
 					konfirmasi ();
 				}
 				else{
-					printf("\t\t--------------------------------------------------------\n");
-					printf("\n\t\tPilihan Tidak Tersedia!\n");
+					printf("\t\t--------------------------------------------------------\n\n");
+					printf("\t\t                Pilihan Tidak Tersedia!                 \n");
 					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();						
 				}
@@ -689,10 +692,10 @@ int main () {
 					konfirmasi ();
 				}
 				else{
+					printf("\t\t--------------------------------------------------------\n\n");
+					printf("\t\t                Pilihan Tidak Tersedia!                 \n");
 					printf("\t\t--------------------------------------------------------\n");
-					printf("\n\t\tPilihan Tidak Tersedia!\n");
-					printf("\t\t--------------------------------------------------------\n");
-					konfirmasi ();	
+					konfirmasi ();		
 				}
 				printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
@@ -816,10 +819,10 @@ int main () {
 					konfirmasi ();
 				}
 				else{
+					printf("\t\t--------------------------------------------------------\n\n");
+					printf("\t\t                Pilihan Tidak Tersedia!                 \n");
 					printf("\t\t--------------------------------------------------------\n");
-					printf("\n\t\tPilihan Tidak Tersedia!\n");
-					printf("\t\t--------------------------------------------------------\n");
-					konfirmasi ();
+					konfirmasi ();	
 				}
 				printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
@@ -930,6 +933,13 @@ int main () {
 					printf("\t\t--------------------------------------------------------\n");
 					konfirmasi ();
 				}
+				else{
+					printf("\t\t--------------------------------------------------------\n\n");
+					printf("\t\t                Pilihan Tidak Tersedia!                 \n");
+					printf("\t\t--------------------------------------------------------\n");
+				konfirmasi ();		
+				} 
+				
 				printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
 				system("cls");
@@ -974,12 +984,7 @@ int main () {
 				fclose(strukb);
 				konfirmasi ();
 			}
-			else{
-				printf("\t\t--------------------------------------------------------\n");
-				printf("\n\t\t\tPilihan Tidak Tersedia!\n");
-				printf("\t\t--------------------------------------------------------\n");
-				konfirmasi ();
-			} 
+			tabungan = tabungan + tabungan_plastik + tabungan_kertas + tabungan_logam + tabungan_botol_kaca; 
 		}
 		else if(pilihan_transaksi==3){
 			printf("\n\t\t--------------------------------------------------------\n");
@@ -1031,7 +1036,7 @@ int main () {
 		else{
 			menu=2;
 			printf("\n\t\t--------------------------------------------------------\n");
-			printf("\t\t\t\t\tPilihan Tidak Tersedia!\n");
+			printf("\t\t                Pilihan Tidak Tersedia!                   \n");
 			printf("\t\t---------------------------------------------------------\n");
 			goto keluar;
 		}
