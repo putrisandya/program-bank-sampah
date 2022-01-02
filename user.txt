@@ -1,0 +1,26 @@
+
+		     RIWAYAT LOGIN USER
+		Nama			: Maharani
+		Alamat			: Jumpai kangin
+		No Telepon		: 082147264255
+		Username		: maha
+		Password		: 1222
+
+
+		     RIWAYAT LOGIN USER
+		Nama			: marisa
+		Alamat			: jumpai kangin
+		No Telepon		: 087865645657
+		Username		: marisa
+		Password		: 2323
+
+
+		     RIWAYAT LOGIN USER
+		Waktu			: Sun Jan 02 10:11:46 2022
+		Nama			: putri sandya
+		Alamat			: jumpai kawan
+		No Telepon		: 081999765432
+		Username		: putri
+		Password		: 123san
+
+
