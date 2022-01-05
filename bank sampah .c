@@ -76,14 +76,19 @@ Tanggal		: 02/01/2022
 Oleh		: Ni Komang Putri Sandya (2105551006)
 Revisi		: 14
 Deskripsi	: Memperbaiki tampilan program
+
+Tanggal		: 05/01/2022
+Oleh		: Ni Komang Putri Sandya (2105551006)
+Revisi		: 15
+Deskripsi	: Memperbaiki pemanggilan variabel pada bukti transaksi, perhitungan tabungan, dan tampilan program
 *******************************************************************************************************************/
 
-#include<stdio.h>
-#include<string.h>
-#include<stdlib.h>
-#include <time.h>
+#include<stdio.h>	//memanggil fungsi standar input output dalam bahasa c
+#include<string.h>	//memanggil fungsi terkait operasi string dalam bahasa c
+#include<stdlib.h>	//memanggil fungsi standar library dalam bahasa c
+#include <time.h>	//memanggil fungsi terkait operasi waktu dalam bahasa c
 
-//membuat tipe data struct untuk menyimpan variabel username dan password dari pengguna
+//membuat tipe data struct untuk menyimpan identitas pengguna dalam beberapa variabel
 struct pengguna{
 	char username[10];
 	char password[10];
@@ -216,7 +221,9 @@ void keluar (){
 }
 //fungsi menampilkan jenis-jenis sampah plastik
 void sampah_plastik(){
+	//membuat pointer plastik untuk menunjuk pada file "sampah plastik.txt"
 	FILE *plastik;
+	//membuka file "sampah plastik.txt" dengan mode read
 	plastik = fopen("sampah plastik.txt", "r");
 	if (plastik == NULL){
 		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
@@ -228,7 +235,9 @@ void sampah_plastik(){
 }
 //fungsi menampilkan jenis-jenis sampah kertas
 void sampah_kertas(){
+	//membuat pointer kertas untuk menunjuk pada file "sampah kertas.txt"
 	FILE *kertas;
+	//membuka file "sampah kertas.txt" dengan mode read
 	kertas = fopen("sampah kertas.txt", "r");
 	if (kertas == NULL){
 		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
@@ -240,7 +249,9 @@ void sampah_kertas(){
 }
 //fungsi menampilkan jenis-jenis sampah logam
 void sampah_logam(){
+	//membuat pointer logam untuk menunjuk pada file "sampah logam.txt"
 	FILE *logam;
+	//membuka file "sampah logam.txt" dengan mode read
 	logam = fopen("sampah logam.txt", "r");
 	if (logam == NULL){
 		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
@@ -252,7 +263,9 @@ void sampah_logam(){
 }
 //fungsi menampilkan jenis-jenis sampah botol kaca
 void sampah_botol_kaca(){
+	//membuat pointer botol untuk menunjuk pada file "sampah botol.txt"
 	FILE *botol;
+	//membuka file "sampah botol.txt" dengan mode read
 	botol = fopen("sampah botol.txt", "r");
 	if (botol == NULL){
 		printf("\n\t\t\t\tERROR!, File tidak tersedia\n");
@@ -303,6 +316,7 @@ int main () {
 			scanf("%s", &user.username);
 			printf("\t\tMasukkan Password		: ");
 			scanf("%s", &user.password);
+			//perulangan untuk mendeteksi akhir dari file record
 			while (!feof(record)){
 				if(strcmp(username, user.username)==0 && strcmp(password, user.password)==0){
 					printf("\n\t\t--------------------------------------------------------\n");
@@ -320,6 +334,7 @@ int main () {
 					goto login;
 				}
 			}
+			//menutup file record 
 			fclose (record);
 		}
 		else if(pilihan_menu==2){
@@ -406,7 +421,9 @@ int main () {
 				printf("\n\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
 				system("cls");
+				//membuat pointer tarik untuk menunjuk pada file "bukti transaksi.txt"
 				FILE *tarik;
+				//membuka file "bukti transaksi.txt" dengan mode a
 				tarik = fopen("bukti transaksi.txt", "a");
 				system("cls");
 				printf("\n");
@@ -417,7 +434,7 @@ int main () {
 				printf("\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 				printf("\t\t--------------------------------------------------------\n");
 				printf("\t\t                 BUKTI PENARIKAN SALDO                  \n");
-				printf("\t\tUsername          : %s                                  \n", user.nama);
+				printf("\t\tUsername          : %s                                  \n", user.username);
 				printf("\t\tNama              : %s                                  \n", user.nama);
 				printf("\t\tAlamat            : %s                                  \n", user.alamat);
 				printf("\t\tTelepon           : %s                                  \n", user.telepon);
@@ -426,7 +443,7 @@ int main () {
 				printf("\t\tSaldo Saat Ini    : %2.f                                \n", tabungan);
 				printf("\t\t--------------------------------------------------------\n");
 				
-				//menuliskan data yang diinput user ke dalam file "bukti transaksi.txt"
+				//menuliskan riwayat transaksi user ke dalam file "bukti transaksi.txt"
 				fprintf(tarik,"\t\t--------------------------------------------------------\n");
 				fprintf(tarik,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
 				fprintf(tarik,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
@@ -434,7 +451,7 @@ int main () {
 				fprintf(tarik,"\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 				fprintf(tarik,"\t\t--------------------------------------------------------\n");
 				fprintf(tarik,"\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-				fprintf(tarik,"\t\tUsername          : %s                                  \n", user.nama);
+				fprintf(tarik,"\t\tUsername          : %s                                  \n", user.username);
 				fprintf(tarik,"\t\tNama              : %s                                  \n", user.nama);
 				fprintf(tarik,"\t\tAlamat            : %s                                  \n", user.alamat);
 				fprintf(tarik,"\t\tTelepon           : %s                                  \n", user.telepon);
@@ -573,46 +590,48 @@ int main () {
 				printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
 				system("cls");
-					FILE *strukp;
-					strukp = fopen("bukti transaksi.txt", "a");
-					system("cls");
-					printf("\n");
-					printf("\t\t--------------------------------------------------------\n");
-					printf("\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
-					printf("\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
-					printf("\t\t--------------------------------------------------------\n");
-					printf("\t\tWaktu             : %s                                  \n", asctime (timeinfo));
-					printf("\t\t--------------------------------------------------------\n");
-					printf("\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-					printf("\t\tUsername          : %s                                  \n", user.nama);
-					printf("\t\tNama              : %s                                  \n", user.nama);
-					printf("\t\tAlamat            : %s                                  \n", user.alamat);
-					printf("\t\tTelepon           : %s                                  \n", user.telepon);
-					printf("\t\t--------------------------------------------------------\n");
-					printf("\t\tJenis Sampah      : Plastik                             \n");
-					printf("\t\tBerat Sampah      : %1.f                                \n", berat);
-					printf("\t\tJumlah Penyetoran : %2.f                                \n", tabungan_plastik);
-					printf("\t\t--------------------------------------------------------\n");
+				//membuat pointer strukp untuk menunjuk pada file "bukti transaksi.txt"
+				FILE *strukp;
+				//membuka file "bukti transaksi.txt" dengan mode a
+				strukp = fopen("bukti transaksi.txt", "a");
+				system("cls");
+				printf("\n");
+				printf("\t\t--------------------------------------------------------\n");
+				printf("\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
+				printf("\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
+				printf("\t\t--------------------------------------------------------\n");
+				printf("\t\tWaktu             : %s                                  \n", asctime (timeinfo));
+				printf("\t\t--------------------------------------------------------\n");
+				printf("\t\t                BUKTI PENYETORAN SAMPAH                 \n");
+				printf("\t\tUsername          : %s                                  \n", user.username);
+				printf("\t\tNama              : %s                                  \n", user.nama);
+				printf("\t\tAlamat            : %s                                  \n", user.alamat);
+				printf("\t\tTelepon           : %s                                  \n", user.telepon);
+				printf("\t\t--------------------------------------------------------\n");
+				printf("\t\tJenis Sampah      : Plastik                             \n");
+				printf("\t\tBerat Sampah      : %1.f                                \n", berat);
+				printf("\t\tJumlah Penyetoran : %2.f                                \n", tabungan_plastik);
+				printf("\t\t--------------------------------------------------------\n");
 					
-					//menuliskan data yang diinput user ke dalam file "bukti transaksi.txt"
-					fprintf(strukp,"\t\t--------------------------------------------------------\n");
-					fprintf(strukp,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
-					fprintf(strukp,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
-					fprintf(strukp,"\t\t--------------------------------------------------------\n");
-					fprintf(strukp,"\t\tWaktu             : %s                                  \n", asctime (timeinfo));
-					fprintf(strukp,"\t\t--------------------------------------------------------\n");
-					fprintf(strukp,"\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-					fprintf(strukp,"\t\tUsername          : %s                                  \n", user.nama);
-					fprintf(strukp,"\t\tNama              : %s                                  \n", user.nama);
-					fprintf(strukp,"\t\tAlamat            : %s                                  \n", user.alamat);
-					fprintf(strukp,"\t\tTelepon           : %s                                  \n", user.telepon);
-					fprintf(strukp,"\t\t--------------------------------------------------------\n");
-					fprintf(strukp,"\t\tJenis Sampah      : Plastik                             \n");
-					fprintf(strukp,"\t\tBerat Sampah      : %1.f                                \n", berat);
-					fprintf(strukp,"\t\tJumlah Penyetoran : %2.f                                \n", tabungan_plastik);
-					fprintf(strukp,"\t\t--------------------------------------------------------\n\n");
-					fclose(strukp);
-					konfirmasi ();
+				//menuliskan riwayat transaksi user ke dalam file "bukti transaksi.txt"
+				fprintf(strukp,"\t\t--------------------------------------------------------\n");
+				fprintf(strukp,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
+				fprintf(strukp,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
+				fprintf(strukp,"\t\t--------------------------------------------------------\n");
+				fprintf(strukp,"\t\tWaktu             : %s                                  \n", asctime (timeinfo));
+				fprintf(strukp,"\t\t--------------------------------------------------------\n");
+				fprintf(strukp,"\t\t                BUKTI PENYETORAN SAMPAH                 \n");
+				fprintf(strukp,"\t\tUsername          : %s                                  \n", user.username);
+				fprintf(strukp,"\t\tNama              : %s                                  \n", user.nama);
+				fprintf(strukp,"\t\tAlamat            : %s                                  \n", user.alamat);
+				fprintf(strukp,"\t\tTelepon           : %s                                  \n", user.telepon);
+				fprintf(strukp,"\t\t--------------------------------------------------------\n");
+				fprintf(strukp,"\t\tJenis Sampah      : Plastik                             \n");
+				fprintf(strukp,"\t\tBerat Sampah      : %1.f                                \n", berat);
+				fprintf(strukp,"\t\tJumlah Penyetoran : %2.f                                \n", tabungan_plastik);
+				fprintf(strukp,"\t\t--------------------------------------------------------\n\n");
+				fclose(strukp);
+				konfirmasi ();
 			}
 			else if(pilihan_sampah==2){
 				system("cls");
@@ -700,7 +719,9 @@ int main () {
 				printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
 				system("cls");
+				//membuat pointer strukk untuk menunjuk pada file "bukti transaksi.txt"
 				FILE *strukk;
+				//membuka file "bukti transaksi.txt" dengan mode a
 				strukk = fopen("bukti transaksi.txt", "a");
 				system("cls");
 				printf("\n");
@@ -711,7 +732,7 @@ int main () {
 				printf("\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 				printf("\t\t--------------------------------------------------------\n");
 				printf("\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-				printf("\t\tUsername          : %s                                  \n", user.nama);
+				printf("\t\tUsername          : %s                                  \n", user.username);
 				printf("\t\tNama              : %s                                  \n", user.nama);
 				printf("\t\tAlamat            : %s                                  \n", user.alamat);
 				printf("\t\tTelepon           : %s                                  \n", user.telepon);
@@ -721,7 +742,7 @@ int main () {
 				printf("\t\tJumlah Penyetoran : %2.f                                \n", tabungan_kertas);
 				printf("\t\t--------------------------------------------------------\n");
 				
-				//menuliskan data yang diinput user ke dalam file "bukti transaksi.txt"
+				//menuliskan riwayat transaksi user ke dalam file "bukti transaksi.txt"
 				fprintf(strukk,"\t\t--------------------------------------------------------\n");
 				fprintf(strukk,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
 				fprintf(strukk,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
@@ -729,7 +750,7 @@ int main () {
 				fprintf(strukk,"\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 				fprintf(strukk,"\t\t--------------------------------------------------------\n");
 				fprintf(strukk,"\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-				fprintf(strukk,"\t\tUsername          : %s                                  \n", user.nama);
+				fprintf(strukk,"\t\tUsername          : %s                                  \n", user.username);
 				fprintf(strukk,"\t\tNama              : %s                                  \n", user.nama);
 				fprintf(strukk,"\t\tAlamat            : %s                                  \n", user.alamat);
 				fprintf(strukk,"\t\tTelepon           : %s                                  \n", user.telepon);
@@ -827,7 +848,9 @@ int main () {
 				printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
 				system("cls");
+				//membuat pointer strukl untuk menunjuk pada file "bukti transaksi.txt"
 				FILE *strukl;
+				//membuka file "bukti transaksi.txt" dengan mode a
 				strukl = fopen("bukti transaksi.txt", "a");
 				system("cls");
 				printf("\n");
@@ -838,7 +861,7 @@ int main () {
 				printf("\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 				printf("\t\t--------------------------------------------------------\n");
 				printf("\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-				printf("\t\tUsername          : %s                                  \n", user.nama);
+				printf("\t\tUsername          : %s                                  \n", user.username);
 				printf("\t\tNama              : %s                                  \n", user.nama);
 				printf("\t\tAlamat            : %s                                  \n", user.alamat);
 				printf("\t\tTelepon           : %s                                  \n", user.telepon);
@@ -848,7 +871,7 @@ int main () {
 				printf("\t\tJumlah Penyetoran : %2.f                                \n", tabungan_logam);
 				printf("\t\t--------------------------------------------------------\n");
 				
-				//menuliskan data yang diinput user ke dalam file "bukti transaksi.txt"
+				//menuliskan riwayat transaksi user ke dalam file "bukti transaksi.txt"
 				fprintf(strukl,"\t\t--------------------------------------------------------\n");
 				fprintf(strukl,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
 				fprintf(strukl,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
@@ -856,7 +879,7 @@ int main () {
 				fprintf(strukl,"\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 				fprintf(strukl,"\t\t--------------------------------------------------------\n");
 				fprintf(strukl,"\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-				fprintf(strukl,"\t\tUsername          : %s                                  \n", user.nama);
+				fprintf(strukl,"\t\tUsername          : %s                                  \n", user.username);
 				fprintf(strukl,"\t\tNama              : %s                                  \n", user.nama);
 				fprintf(strukl,"\t\tAlamat            : %s                                  \n", user.alamat);
 				fprintf(strukl,"\t\tTelepon           : %s                                  \n", user.telepon);
@@ -943,7 +966,9 @@ int main () {
 				printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 				sleep(5);
 				system("cls");
+				//membuat pointer strukb untuk menunjuk pada file "bukti transaksi.txt"
 				FILE *strukb;
+				//membuka file "bukti transaksi.txt" dengan mode a
 				strukb = fopen("bukti transaksi.txt", "a");
 				system("cls");
 				printf("\n");
@@ -954,7 +979,7 @@ int main () {
 				printf ( "\t\t\t    Waktu : %s", asctime (timeinfo) );
 				printf("\t\t--------------------------------------------------------\n");
 				printf("\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-				printf("\t\tUsername          : %s                                  \n", user.nama);
+				printf("\t\tUsername          : %s                                  \n", user.username);
 				printf("\t\tNama              : %s                                  \n", user.nama);
 				printf("\t\tAlamat            : %s                                  \n", user.alamat);
 				printf("\t\tTelepon           : %s                                  \n", user.telepon);
@@ -964,7 +989,7 @@ int main () {
 				printf("\t\tJumlah Penyetoran : %2.f                                \n", tabungan_botol_kaca);
 				printf("\t\t--------------------------------------------------------\n");
 				
-				//menuliskan data yang diinput user ke dalam file "bukti transaksi.txt"
+				//menuliskan riwayat transaksi user ke dalam file "bukti transaksi.txt"
 				fprintf(strukb,"\t\t--------------------------------------------------------\n");
 				fprintf(strukb,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
 				fprintf(strukb,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
@@ -972,7 +997,7 @@ int main () {
 				fprintf(strukb,"\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 				fprintf(strukb,"\t\t--------------------------------------------------------\n");
 				fprintf(strukb,"\t\t                BUKTI PENYETORAN SAMPAH                 \n");
-				fprintf(strukb,"\t\tUsername          : %s                                  \n", user.nama);
+				fprintf(strukb,"\t\tUsername          : %s                                  \n", user.username);
 				fprintf(strukb,"\t\tNama              : %s                                  \n", user.nama);
 				fprintf(strukb,"\t\tAlamat            : %s                                  \n", user.alamat);
 				fprintf(strukb,"\t\tTelepon           : %s                                  \n", user.telepon);
@@ -984,7 +1009,11 @@ int main () {
 				fclose(strukb);
 				konfirmasi ();
 			}
-			tabungan = tabungan + tabungan_plastik + tabungan_kertas + tabungan_logam + tabungan_botol_kaca; 
+			tabungan = tabungan + tabungan_plastik + tabungan_kertas + tabungan_logam + tabungan_botol_kaca;
+			tabungan_plastik=0;
+			tabungan_kertas=0;
+			tabungan_logam=0;
+			tabungan_botol_kaca=0;
 		}
 		else if(pilihan_transaksi==3){
 			printf("\n\t\t--------------------------------------------------------\n");
@@ -993,7 +1022,9 @@ int main () {
 			printf("\t\t\t>>SEDANG MENCETAK BUKTI TRANSAKSI ANDA>>>");
 			sleep(5);
 			system("cls");
+			//membuat pointer saldo untuk menunjuk pada file "bukti transaksi.txt"
 			FILE *saldo;
+			//membuka file "bukti transaksi.txt" dengan mode a	
 			saldo = fopen("bukti transaksi.txt", "a");
 			system("cls");
 			printf("\n");
@@ -1004,7 +1035,7 @@ int main () {
 			printf("\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 			printf("\t\t--------------------------------------------------------\n");
 			printf("\t\t                    INFORMASI SALDO                     \n");
-			printf("\t\tUsername          : %s                                  \n", user.nama);
+			printf("\t\tUsername          : %s                                  \n", user.username);
 			printf("\t\tNama              : %s                                  \n", user.nama);
 			printf("\t\tAlamat            : %s                                  \n", user.alamat);
 			printf("\t\tTelepon           : %s                                  \n", user.telepon);
@@ -1012,7 +1043,7 @@ int main () {
 			printf("\t\tTotal Saldo       : %2.f                                \n", tabungan);
 			printf("\t\t--------------------------------------------------------\n");
 			
-			//menuliskan data yang diinput user ke dalam file "bukti transaksi.txt"
+			//menuliskan riwayat transaksi user ke dalam file "bukti transaksi.txt"
 			fprintf(saldo,"\t\t--------------------------------------------------------\n");
 			fprintf(saldo,"\t\t|           BANK SAMPAH JUMPAI ASRI LESTARI            |\n");
 			fprintf(saldo,"\t\t|            Desa Jumpai, Klungkung, Bali              |\n");
@@ -1020,7 +1051,7 @@ int main () {
 			fprintf(saldo,"\t\tWaktu             : %s                                  \n", asctime (timeinfo));
 			fprintf(saldo,"\t\t--------------------------------------------------------\n");
 			fprintf(saldo,"\t\t                    INFORMASI SALDO                     \n");
-			fprintf(saldo,"\t\tUsername          : %s                                  \n", user.nama);
+			fprintf(saldo,"\t\tUsername          : %s                                  \n", user.username);
 			fprintf(saldo,"\t\tNama              : %s                                  \n", user.nama);
 			fprintf(saldo,"\t\tAlamat            : %s                                  \n", user.alamat);
 			fprintf(saldo,"\t\tTelepon           : %s                                  \n", user.telepon);
